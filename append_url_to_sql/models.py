@@ -5,7 +5,7 @@
 Whilst the `Django Debug Toolbar
 <https://github.com/robhudson/django-debug-toolbar>`_ is invaluable for
 development in a local environment, it cannot help you identify misbehaving
-query in production. To assist in this task, ``django-append-url-to-sql``
+queries in production. To assist in this task, ``django-append-url-to-sql``
 appends the request URL as a comment to every SQL statement that is executed.
 For example::
 
