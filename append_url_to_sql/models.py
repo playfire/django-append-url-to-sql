@@ -11,8 +11,8 @@ For example::
 
   SELECT "auth_user"."id", [..] WHERE "auth_user"."id" = 1 -- /login
 
-This makes it possible to go from your ``SELECT * FROM pg_stat_activity`` or
-``SHOW PROCESSLIST`` output to the view that is executing it.
+This makes it possible to go from ``SELECT * FROM pg_stat_activity`` or ``SHOW
+PROCESSLIST`` output to the view that is executing it.
 
 If the current request URL cannot be determined, nothing is appended.
 
