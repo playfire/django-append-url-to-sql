@@ -1,0 +1,152 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>django-append-url-to-sql — Appends the request URL to SQL statements in Django &mdash; django-append-url-to-sql documentation</title>
+    <link rel="stylesheet" href="_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="django-append-url-to-sql documentation" href="#" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="#">django-append-url-to-sql documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <span class="target" id="module-append_url_to_sql.models"></span><div class="section" id="django-append-url-to-sql-appends-the-request-url-to-sql-statements-in-django">
+<h1><tt class="xref py py-mod docutils literal"><span class="pre">django-append-url-to-sql</span></tt> &#8212; Appends the request URL to SQL statements in Django<a class="headerlink" href="#django-append-url-to-sql-appends-the-request-url-to-sql-statements-in-django" title="Permalink to this headline">¶</a></h1>
+<p>Whilst the <a class="reference external" href="https://github.com/robhudson/django-debug-toolbar">Django Debug Toolbar</a> is invaluable for
+development in a local environment, it cannot help you identify misbehaving
+queries in production. To assist in this task, <tt class="docutils literal"><span class="pre">django-append-url-to-sql</span></tt>
+appends the request URL as a comment to every SQL statement that is executed.
+For example:</p>
+<div class="highlight-python"><pre>SELECT "auth_user"."id", [..] WHERE "auth_user"."id" = 1 -- /login</pre>
+</div>
+<p>This makes it possible to go from your <tt class="docutils literal"><span class="pre">SELECT</span> <span class="pre">*</span> <span class="pre">FROM</span> <span class="pre">pg_stat_activity</span></tt> or
+<tt class="docutils literal"><span class="pre">SHOW</span> <span class="pre">PROCESSLIST</span></tt> output to the view that is executing it.</p>
+<p>If the current request URL cannot be determined, nothing is appended.</p>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">Add <tt class="docutils literal"><span class="pre">append_url_to_sql</span></tt> to your <tt class="docutils literal"><span class="pre">INSTALLED_APPS</span></tt>:</p>
+<div class="highlight-python"><pre>INSTALLED_APPS = (
+    ...
+    'append_url_to_sql',
+    ...
+)</pre>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="append-request-url-to-sql-enabled">
+<h3><tt class="docutils literal"><span class="pre">APPEND_REQUEST_URL_TO_SQL_ENABLED</span></tt><a class="headerlink" href="#append-request-url-to-sql-enabled" title="Permalink to this headline">¶</a></h3>
+<p>Default: <tt class="xref docutils literal"><span class="pre">True</span></tt></p>
+<p>Use this setting to disable this functionality without having to remove the
+application. This can be used to only append the SQL code only in specific
+environments.</p>
+</div>
+</div>
+<div class="section" id="links">
+<h2>Links<a class="headerlink" href="#links" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>View/download code</dt>
+<dd><a class="reference external" href="https://github.com/playfire/django-append-url-to-sql">https://github.com/playfire/django-append-url-to-sql</a></dd>
+<dt>File a bug</dt>
+<dd><a class="reference external" href="https://github.com/playfire/django-append-url-to-sql/issues">https://github.com/playfire/django-append-url-to-sql/issues</a></dd>
+</dl>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="#">
+              <img class="logo" src="_static/playfire.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="#">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#"><tt class="docutils literal"><span class="pre">django-append-url-to-sql</span></tt> &#8212; Appends the request URL to SQL statements in Django</a><ul>
+<li><a class="reference internal" href="#installation">Installation</a></li>
+<li><a class="reference internal" href="#configuration">Configuration</a><ul>
+<li><a class="reference internal" href="#append-request-url-to-sql-enabled"><tt class="docutils literal"><span class="pre">APPEND_REQUEST_URL_TO_SQL_ENABLED</span></tt></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#links">Links</a></li>
+</ul>
+</li>
+</ul>
+
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/index.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="#">django-append-url-to-sql documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, 2011 UUMC Ltd..
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>
