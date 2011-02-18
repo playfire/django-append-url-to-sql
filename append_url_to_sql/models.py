@@ -30,8 +30,8 @@ Installation
 Configuration
 -------------
 
-``APPEND_REQUEST_URL_TO_SQL_ENABLED``
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+``APPEND_URL_TO_SQL_ENABLED``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Default: ``True``
 
@@ -68,7 +68,7 @@ class CursorWrapper(util.CursorDebugWrapper):
 
         return self.cursor.execute(sql, *args)
 
-if getattr(settings, 'APPEND_REQUEST_URL_TO_SQL_ENABLED', True):
+if getattr(settings, 'APPEND_URL_TO_SQL_ENABLED', True):
     old_cursor = BaseDatabaseWrapper.cursor
     def cursor(self, *args, **kwargs):
         return CursorWrapper(old_cursor(self, *args, **kwargs), self)
